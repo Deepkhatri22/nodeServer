@@ -29,4 +29,4 @@ io.on('connection', socket =>{                     //socket.io instance listen s
     });
 });
 
-httpServer.listen(80);
+httpServer.listen(3000);
