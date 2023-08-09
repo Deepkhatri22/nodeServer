@@ -3,6 +3,7 @@
 // const io = require("socket.io")(80);
 
 const httpServer = require("http").createServer();
+// for cors handle 
 const io = require("socket.io")(httpServer, {
         cors: {
           origin: '*',
@@ -29,4 +30,5 @@ io.on('connection', socket =>{                     //socket.io instance listen s
     });
 });
 
+// for cors handle
 httpServer.listen(80);
