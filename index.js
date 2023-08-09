@@ -1,6 +1,14 @@
 
 // Node server for handle socket.io connections
-const io = require("socket.io")(80);
+// const io = require("socket.io")(80);
+
+const httpServer = require("http").createServer();
+const io = require("socket.io")(httpServer, {
+        cors: {
+          origin: '*',
+        }
+      });
+
 
 const users = {};
 
@@ -19,4 +27,6 @@ io.on('connection', socket =>{                     //socket.io instance listen s
         socket.broadcast.emit('left', users[socket.id])
         delete users[socket.id];
     });
-})
+});
+
+httpServer.listen(80);
