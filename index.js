@@ -1,9 +1,9 @@
 // Node server for handle socket.io connections
 // const io = require("socket.io")(80);
 
-const httpServer = require("http").createServer();
+// const httpServer = require("http").createServer();
 
-const io = require("socket.io")(httpServer, {
+const io = require("socket.io")(80, {
         cors: {
           origin: '*',
         }
@@ -29,4 +29,4 @@ io.on('connection', socket =>{                     //socket.io instance listen s
     });
 });
 
-httpServer.listen(3000);
+
